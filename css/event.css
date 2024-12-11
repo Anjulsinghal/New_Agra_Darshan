@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Ensures padding is included in the width and height */
+}
+
+body {
+  font-family: Lato, sans-serif;
+}
+
+.container {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  gap: 20px;
+  /* Adds space between main content and aside */
+  padding: 20px;
+}
+
+#image {
+  width: 100%;
+  /* Adjust to ensure responsiveness */
+  max-width: 800px;
+  /* Prevents it from stretching too much on large screens */
+  height: auto;
+  /* Keeps the aspect ratio */
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  /* Full width on smaller screens */
+  max-width: 80%;
+  /* Limited width on larger screens */
+  margin: 0 auto;
+}
+
+.monument-description {
+  text-align: left;
+  padding: 20px;
+}
+
+.header {
+  margin: 15px auto;
+  background-color: #dfe6e9;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  /* Limits the width on larger screens */
+  text-align: center;
+  color: #2d3436;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.header p {
+  font-size: 1.2em;
+  color: #636e72;
+}
+
+.main-section {
+  flex: 1;
+  /* Takes up available space */
+}
+
+.aside {
+  flex-basis: 400px;
+  /* Fixed width for aside section */
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.sub-heading {
+  font-size: 14px;
+}
+
+.related-articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  text-decoration: none;
+  color: black;
+}
+
+.card:hover .heading {
+  text-decoration: underline;
+
+}
+
+.card {
+  width: 100%;
+  /* Full width in the aside section */
+  display: flex;
+  align-items: center;
+  background-color: #dfe6e9;
+  margin: 20px 0;
+  border-radius: 8px;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* padding: 15px; */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 40%;
+  /* Responsive image within the card */
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+#content-paragraph {
+  line-height: 1.7;
+}
+
+@media only screen and (max-width: 1250px) {
+  .container {
+    flex-direction: column;
+    /* Stack sections on top of each other on small screens */
+    margin-top: 50px;
+  }
+
+  #related-articles {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main-section {
+    margin-top: 3rem;
+    width: 100%;
+    /* Full width on small screens */
+  }
+
+  .aside {
+    width: 100%;
+    /* Full width on small screens */
+    padding: 20px 0;
+  }
+
+  .card {
+    width: 260px;
+    /* Full width for cards on small screens */
+    height: 82px;
+    /* Adjust height accordingly */
+    margin: 20px;
+  }
+
+  .card img {
+    width: 30%;
+    /* Reduce the image width on smaller screens */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header h1 {
+    font-size: 2em;
+    /* Adjust heading size */
+  }
+
+  .header p {
+    font-size: 1em;
+  }
+
+  .related-articles {
+    justify-content: center;
+  }
+
+  .card {
+    height: auto;
+    width: 200px;
+    min-width: 120px;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card {
+    flex-direction: column;
+    /* Stack image and text vertically */
+    text-align: center;
+    padding: 10px;
+  }
+
+  .card img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    padding: 10px;
+    /* Reduce padding on small screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+
+  .header p {
+    font-size: 0.9em;
+  }
+
+  .aside {
+    padding: 10px;
+  }
+
+
+}

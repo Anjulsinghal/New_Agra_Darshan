@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Admin Login</h1>
+        <input type="password" id="adminKey" placeholder="Enter Admin Key" />
+        <button onclick="login()">Login</button>
+        <div class="error" id="error"></div>
+    </div>
+
+    <script>
+        // Define the hashed admin key
+        const ADMIN_KEY_HASH = "f80a4ad87fee7c9fdc19b7769495fdb5"; // Example MD5 hash for "password"
+
+        // Function to hash input (simple MD5 hash function)
+        function md5(string) {
+            return CryptoJS.MD5(string).toString();
+        }
+
+        function login() {
+            const adminKeyInput = document.getElementById('adminKey').value;
+            const errorDiv = document.getElementById('error');
+            errorDiv.textContent = "";
+
+            // Hash the input key
+            const hashedKey = md5(adminKeyInput);
+
+            if (hashedKey === ADMIN_KEY_HASH) {
+                alert('Login successful!');
+                localStorage.setItem('isAuthenticated', 'true'); // Store authentication state
+                window.location.href = 'admin-page.html'; // Redirect to admin dashboard
+            } else {
+                errorDiv.textContent = 'Invalid admin key. Please try again.';
+            }
+        }
+
+        // Check authentication status on page load
+        window.onload = function() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            if (isAuthenticated === 'true') {
+                window.location.href = 'admin-page.html'; // Redirect if already authenticated
+            }
+        }
+    </script>
+
+    <!-- Include CryptoJS for hashing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.places {
+    padding: 0;
+    margin: 5%;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+}
+
+.gallery__container {
+    padding: 5rem 1rem;
+    color: #FFF;
+    text-align: center;
+    background-color: #000;
+    height: auto;
+}
+
+.gallery__grid {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card22 {
+    min-width: 225px;
+    height: 200px;
+    transition: all 0.4s;
+    border-radius: 13px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+    font-size: 30px;
+    font-weight: 400;
+    display: flex;
+    border: 2px solid bisque;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Ensure content is positioned relative */
+    margin: 10px 20px;
+}
+
+.card22:hover {
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+}
+
+.card22::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    /* filter: blur(5px);  */
+    z-index: 0;
+    transition: all 0.4s;
+    border-radius: inherit;
+}
+
+.card22:hover::before {
+    background-color: rgba(173, 216, 230, 0.5);
+    /* Light blue with transparency */
+    filter: blur(5px);
+    /* Keep blur effect only on the background */
+}
+
+.second-content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Ensure text is on top of the blur */
+    color: rgba(22, 93, 4, 0.9);
+    transition: all 0.4s;
+}
+
+.second-content {
+    opacity: 0;
+    font-size: 0px;
+    transform: rotate(90deg) scale(-1);
+}
+
+.card22:hover .second-content {
+    opacity: 1;
+    font-size: 18px;
+    transform: rotate(0deg);
+    font-weight: 700;
+}
+
+.card22:nth-child(1) {
+    background: url('https://s3.ap-south-1.amazonaws.com/zo-media/blog_photo/old/taj-mahotsav_Z2F5Fh0.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card22:nth-child(2){
+    background: url('https://staticimg.amarujala.com/assets/images/2022/09/24/janakpuri-mahotsav_1663991936.jpeg?w=414');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card22:nth-child(3){
+    background: url('https://www.india-tours.com/images/festivals/kailash-fair/kailash-fair.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card22:nth-child(4){
+    background: url('https://lh3.googleusercontent.com/p/AF1QipPRfALiPn7cS9POsUxkOJ9jAtOQyrIvuTfq7rKp=w768-h768-n-o-v1');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card22:nth-child(5){
+    background: url('https://staticimg.amarujala.com/assets/images/2019/07/14/mudia-purnima-mela_1563085136.jpeg?w=414');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width:1200px){
+    .gallery__grid {
+        gap: 2rem;
+    }
+    
+}

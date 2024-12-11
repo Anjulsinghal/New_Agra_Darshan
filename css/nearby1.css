@@ -1,0 +1,243 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-header: #0d0d0d;
+    --color-text: #404040;
+    --color-btn-text: #3363ff;
+    --color-btn-background: #e6ecff;
+    --transition: 0.2s;
+}
+
+/* Hero Section */
+.hero-section {
+    /* margin-top: 100px; */
+    background-image: url('/images/nearby_main.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+@media screen and (max-width:1200px){
+    .hero-section {
+        background-image: url('/images/nearby3.jpeg');
+    }
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.btn-solar {
+    background-color: #FFD700;
+    color: #333;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Cards Section */
+.cards-box {
+    padding: 4rem 1rem;
+    background-color: #f9f9f9;
+}
+
+.nearby-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.nearby-cards {
+    font-family: "Inter", sans-serif;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    width: 100%; /* Full width for mobile */
+    max-width: 350px; /* Limit max width */
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    padding-bottom: 2rem; /* Add padding at the bottom for the button */
+    margin: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card__content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allow content to grow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between text and button */
+}
+
+.card__header {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card__text-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.card__text {
+    font-size: 14px;
+    letter-spacing: 0.1rem;
+    line-height: 1.7;
+    color: #3f3f3f;
+    margin-bottom: 2.5rem;
+}
+
+.card__btn {
+    display: block;
+    width: 100%; /* Ensure full width for the button */
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--color-btn-text);
+    background-color: var(--color-btn-background);
+    border: none;
+    border-radius: 0.4rem;
+    transition: var(--transition);
+    cursor: pointer;
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.card__btn span{
+    margin-left: 10px;
+}
+
+.card__btn:hover span {
+    margin-left: 15px;
+    transition: var(--transition);
+}
+
+@media (max-width: 1200px){
+    .card{
+        position: relative;
+    }
+    .card__btn{
+        max-width: 85%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 20px;
+    }
+    .hero-section{
+        height: 100vh;
+    }
+    .gallery__grid {
+        gap: 2rem !important;
+    }
+}
+/* Media Queries */
+@media (min-width: 768px) {
+    .hero-section{
+        margin-top: 5%;
+        height: 90vh;
+    }
+    .hero-title {
+        font-size: 5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .btn-solar {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-title {
+        font-size: 6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .btn-solar {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width for mobile */
+        max-width: 100%; /* No width restriction on mobile */
+        margin: 1rem 0; /* Adjust margins for smaller screens */
+        padding-bottom: 2rem; /* Ensure space for the button */
+    }
+
+    .card__btn {
+        font-size: 1rem; /* Reduce button size for mobile */
+        padding: 0.8rem; /* Adjust padding for mobile button */
+        max-width: 85%;
+    }
+}

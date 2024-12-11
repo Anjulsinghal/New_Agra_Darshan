@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description"
+        content="An example pen showing how a basic CSS Grid container can create a nice, responsive card layout.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nearby Attraction</title>
+    
+    <link rel="stylesheet" href="/css/nearby1.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="/css/footer1_nearby.css"> -->
+</head>
+
+<body>
+
+    <!-- ----------------Navbar Started-------------------- -->
+
+    <nav>
+        <input type="checkbox" id="nav-toggle">
+        <div class="logo"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4aVxtbWmGoi4u31ssr8hf14pJtgtqD4QyJw&usqp=CAU"
+                alt="logo" height="95" width="112">
+            AGRA<strong>दर्शन</strong></div>
+        <ul class="links">
+            <li><a href="/index.html">HOME</a></li>
+            
+            <li><a href="/Html/tiffin_services.html">FOOD SERVICES</a></li>
+            <li><a href="/Html/taxi_services.html">TRANSPORT SERVICES</a></li>
+            <li><a>OTHER INITIATIVES</a>
+                <ul class="dropdown">
+                    <li><a href="/Html/sos_jail_chaupati.html">SOS Jail Chaupati</a></li>
+                    <li><a href="/Html/sos_jail_bandhu.html">SOS Jail Bandhu</a></li>
+                    <li><a href="/Html/Anti_Tabacco.html">Anti-Tabacco</a></li>
+                </ul>
+            </li>
+            <li><a>EXPLORE AGRA</a>
+                <ul class="dropdown">
+                    <li><a href="/Html/agra_darshan.html">AGRA DARSHAN</a></li>
+                    <li><a href="/Html/nearby.html">NEARBY ATTRACTIONS</a></li>
+                </ul>
+            </li>
+            <li><a href="/Html/contact.html">CONTACT US</a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+
+    <!-- -------------------------Nearby Hero Section ------------------------- -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 hero-boxx-all">
+                    <h1 class="hero-title">Find Places<br>To Visit</h1>
+                    <p class="hero-subtitle">No need to give up daily comfort if you care about the environment. Nature
+                        gives what you need, and we know how to take it for you.</p>
+                    <!-- <a href="" class="btn btn-solar btn-lg">More about Solar</a> -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ------------------------ Nearby Cards Started-------------------- -->
+    <main>
+        <div class="cards-box">
+            <h1 class="nearby-heading">Nearby Attraction</h1>
+            <div class="nearby-cards">
+                <div class="grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://images.unsplash.com/photo-1662376107358-21296a9234f1?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJlbSUyMG1hbmRpciUyMHZyaW5kYXZhbnxlbnwwfHwwfHx8MA%3D%3D"
+                            alt="Prem Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Prem Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">Prem Mandir in Vrindavan is all about Radha and Krishna's divine
+                                    love.
+                                    This beautiful temple attracts devotees and tourists alike from all over the world
+                                    for
+                                    its
+                                    stunning architecture and spiritual significance. It is definitely a must-visit
+                                    destination
+                                    for seekers of tranquility and enlightenment.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite1()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite1() {
+                                    window.open('https://www.google.com/search?q=Prem+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://apnayatra.com/wp-content/uploads/2023/06/Dwarkadhish-Temple-Mathura4.jpg"
+                            alt="Dwarkadhish Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Dwarkadhish Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Dwarkadheesh Temple, dedicated to Lord Krishna as
+                                    Dwarkadheesh, is
+                                    an
+                                    ancient and large temple near the Yamuna River in Mathura. Also known as Jagat
+                                    Mandir or
+                                    Nija
+                                    Mandir, it is one of Mathura's oldest and largest temples.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite2()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite2() {
+                                    window.open('https://www.google.com/search?q=Dwarkadhish+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://i.pinimg.com/originals/78/30/22/783022013ed8859ce4761f87054437d7.jpg"
+                            alt="Radha Rani Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Radha Rani Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Shri Radha Rani Temple in Mathura, India is a historic Hindu
+                                    temple
+                                    dedicated to goddess Radha. Perched atop Bhanugarh hills, 250 meters high, it
+                                    venerates
+                                    Radha
+                                    Krishna as Shri Laadli Lal. The temple is a major attraction during festivals like
+                                    Radhashtami and Lathmar Holi.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite3()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite3() {
+                                    window.open('https://www.google.com/search?q=Radha+Rani+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://media.gettyimages.com/id/157439806/photo/birla-mandir-temple-delhi-india.jpg?s=612x612&w=0&k=20&c=8p0vcTOQgAbR41txQbZ7ftfYJzCB7HGBezPprcW4Yqg="
+                            alt="Birla Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Birla Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Birla Mandir in Mathura, also known as the Gita Mandir, is a
+                                    modern Hindu temple dedicated to Lord Krishna. It features intricate marble carvings
+                                    depicting scenes from the Bhagavad Gita and hosts cultural events, drawing devotees
+                                    and
+                                    visitors.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite4()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite4() {
+                                    window.open('https://www.google.com/search?q=Birla+Mandir+Mathura', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://nehavideofilmproduction.com/wp-content/uploads/2021/08/ISKCON-Temple-1.jpg"
+                            alt="ISKCON Temple">
+                        <div class="card__content">
+                            <h1 class="card__header">ISKCON Temple</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The ISKCON Temple in Vrindavan, Sri Krishna Balaram Mandir, is a
+                                    major
+                                    ISKCON temple dedicated to Krishna and Balarama, with deities and festivals like
+                                    Krishna
+                                    Janmashtami and Gaura-purnima.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite5()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite5() {
+                                    window.open('https://www.google.com/search?q=ISKCON+Temple+Vrindavan', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://www.brijbhakti.com/wp-content/uploads/2021/08/192229591_2911561805828733_3666990326492359015_n-2.jpg"
+                            alt="Banke Bihari Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Banke Bihari Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">Banke Bihari Mandir is a famous Hindu temple in Vrindavan, India,
+                                    dedicated to Lord Krishna. It was built in 1864 and is known for its unique idol of
+                                    Krishna and traditions, such as closing the doors in the afternoon and not allowing
+                                    devotees to see the idol's eyes directly.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite6()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite6() {
+                                    window.open('https://www.google.com/search?q=Banke+Bihari+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://agratourism.in/images/places-to-visit/headers/bateshwar-agra-header-agra-tourism.jpg.jpg"
+                            alt="Bateshwar Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Bateshwar Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Bateshwar Mandir is a temple complex located on the Yamuna
+                                    River
+                                    bank. It comprises 101 temples dedicated to Shiva, with a vibrant annual cattle fair
+                                    and
+                                    mela, attracting pilgrims from across India.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite7()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite7() {
+                                    window.open('https://www.google.com/search?q=Bateshwar+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://s3.amazonaws.com/images.skyscrapercenter.com/thumbs/58995_500x650.jpg"
+                            alt="Chandrodaya Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Chandrodaya Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Vrindavan Chandrodaya Mandir is a world-class and iconic
+                                    monument
+                                    dedicated to Sri Krishna in the holy land of Vrindavan. Once completed, it will be
+                                    the
+                                    world's tallest temple.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite8()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite8() {
+                                    window.open('https://www.google.com/search?q=Chandrodaya+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://mediaim.expedia.com/destination/2/05d671fa391830b4d5c4eb925c9d4dd7.jpg"
+                            alt="Gwalior Fort">
+                        <div class="card__content">
+                            <h1 class="card__header">Gwalior Fort</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Gwalior Fort in Madhya Pradesh, India, is a historic
+                                    stronghold
+                                    atop a steep hill.
+                                    Its diverse architectural ensemble including the Man Singh Palace and
+                                    Teli-ka-Mandir,
+                                    reflects the
+                                    region's rich heritage. With breathtaking city views, it's a cherished tourist spot,
+                                    embodying Gwalior's
+                                    cultural legacy.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite9()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite9() {
+                                    window.open('https://www.google.com/search?q=Gwalior+Fort', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 10 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://lh3.googleusercontent.com/p/AF1QipPwfjSxJ_mxkhSV-q_sESDJrE0rD2B1JweQQo_G=s1360-w1360-h1020"
+                            alt="Nidhivan">
+                        <div class="card__content">
+                            <h1 class="card__header">Nidhivan</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">Nidhivan is one of the sacred sites of Vrindavan, situated in the
+                                    Mathura district,
+                                    Uttar Pradesh, India. It is considered as the most prominent site dedicated to the
+                                    pastimes of the Hindu
+                                    deities Radha and Krishna and their cowherd companions, the Gopikas.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite10()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite10() {
+                                    window.open('https://www.google.com/search?q=Nidhivan', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 11 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://www.brijwale.com/wp-content/uploads/2021/01/DSC_0048-5-rotated.jpg"
+                            alt="Radhavallabh Mandir">
+                        <div class="card__content">
+                            <h1 class="card__header">Radhavallabh Mandir</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Radhavallabh Lal Ji Temple in Vrindavan, India, is dedicated
+                                    to
+                                    Lord Krishna and
+                                    was built in the 16th century. The temple is unique in that it does not have images
+                                    or
+                                    statues of Lord
+                                    Krishna, instead, a flower or Tulsi leaf represents the deity on a simple throne.
+                                </p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite11()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite11() {
+                                    window.open('https://www.google.com/search?q=Radhavallabh+Mandir', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Card 12 -->
+                    <div class="card">
+                        <img class="card__img"
+                            src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/2d/01/4e.jpg"
+                            alt="Ghana Panchi Vihar">
+                        <div class="card__content">
+                            <h1 class="card__header">Ghana Panchi Vihar</h1>
+                            <div class="card__text-wrapper">
+                                <p class="card__text">The Ghana Panchi Bihar in Bharatpur, India, is a national park
+                                    with a
+                                    unique bird
+                                    feeding tradition and Siberian Crane migration. It's a Hindu pilgrimage destination
+                                    during Janmashtami
+                                    and Holi, but the number of Siberian Cranes has decreased due to habitat loss and
+                                    hunting.</p>
+                            </div>
+                            <button class="card__btn" onclick="openWebsite12()">Explore <span>&rarr;</span></button>
+                            <script>
+                                function openWebsite12() {
+                                    window.open('https://www.google.com/search?q=Ghana+Panchi+Vihar', '_blank');
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ------------------------------ footer1 ------------------------------ -->
+
+    <div class="footer1">
+        <div class="footer1-section footer1-first-section">
+            <div class="logo"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4aVxtbWmGoi4u31ssr8hf14pJtgtqD4QyJw&usqp=CAU"
+                    alt="logo" height="95" width="112"> <br>
+                AGRA<strong>दर्शन</strong></div>
+        </div>
+        <div class="footer1-section footer1-links">
+            <h2>QUICK LINKS</h2>
+            <div class="footer1-links-all">
+                <ul>
+                    <li><a href="/index.html"><i class="fa-solid fa-angle-right"></i>Home</a></li>
+                    <li><a href="/Html/nearby.html"><i class="fa-solid fa-angle-right"></i>Nearby Attracttions</a></li>
+                    <li><a href="/Html/ourteam.html"><i class="fa-solid fa-angle-right"></i>Our Team</a></li>
+                    <li><a href="/Html/tiffin_services.html"><i class="fa-solid fa-angle-right"></i>Food Services</a></li>
+                    <li><a href="https://www.mapsofindia.com/maps/uttarpradesh/agra.htm"><i class="fa-solid fa-angle-right"></i>Agra City Map</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer1-section footer1-weather">
+            <h2>Today's Weather</h2>
+            <div id="weather"></div>
+        </div>
+        <div class="footer1-section footer1-contact">
+            <h2>Contact US</h2>
+            <p>Contact us for more queries</p>
+            <p><i class="fa-solid fa-phone"></i> +91 XXXXXXXXX</p>
+            <p><i class="fa-solid fa-envelope"></i> agratours@gmail.com</p>
+        </div>
+    </div>
+    <hr style="color: grey;">
+    <div class="footer1-bottom">
+        <a class="footer1-links-all" href="/Html/terms.html">Terms & Conditions </a> | <a href="/Html/privacy.html">Privacy Policy </a>
+          <p>2023 © AgraTours, All Rights Reserved</p>
+      </div>
+
+    <script src="/scripts/footer.js"></script>
+
+</body>
+
+</html>

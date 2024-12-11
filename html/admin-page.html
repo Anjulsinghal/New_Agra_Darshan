@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOS Tiffin Service Card Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .form-container {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .card-list-container {
+            flex: 2;
+        }
+
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .blog-card .meta {
+            height: 200px;
+        }
+
+        .blog-card .photo {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-card .description {
+            padding: 20px;
+        }
+
+        .blog-card h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+        }
+
+        .blog-card h2 {
+            margin: 0 0 15px 0;
+            color: #777;
+            font-size: 1em;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .navbar{
+            display: flex;
+            flex-direction: row;
+            width: 30px;
+        }
+        .navbar button{
+            position: absolute;
+            right: 10%;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+            <button onclick="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add New Tiffin Service Card</h2>
+            <form id="tiffinServiceForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Main Heading</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="tag">Choose card tag:</label>
+
+                    <select name="tag" id="tag">
+                        <option value="food">food</option>
+                        <option value="transport">transport</option>
+                        <option value="tabacco">tabacco</option>
+                        <option value="jail-caupati">jail-caupati</option>
+                        <option value="jail-bandu">jail-bandu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="title">Small Heading</label>
+                    <input type="text" id="title" name="title" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="description1">Description Paragraph</label>
+                    <textarea id="description1" name="description1" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Card Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required />
+                </div>
+                <button type="submit" class="submit-btn">
+                    Add Tiffin Service Card
+                </button>
+            </form>
+        </div>
+        <div class="card-list-container">
+            <h2>Existing Tiffin Service Cards</h2>
+            <div id="cardList" class="card-list">
+                <!-- Dynamically populated cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch and Render Tiffin Service Cards
+        const API_BASE_URL = "http://localhost:3000";
+        async function fetchTiffinServices() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/tiffin-services`);
+                const tiffinServices = await response.json();
+                renderCards(tiffinServices);
+            } catch (error) {
+                console.error("Error fetching tiffin services:", error);
+            }
+        }
+
+        // Render Cards
+        function renderCards(cards) {
+            const cardList = document.getElementById("cardList");
+            cardList.innerHTML = ""; // Clear existing cards
+
+            cards.forEach((card) => {
+                const cardElement = document.createElement("div");
+                cardElement.classList.add("blog-card");
+                cardElement.innerHTML = `
+                    <div class="meta">
+                        <div class="photo" style="background-image: url('${card.imageUrl}')"></div>
+                    </div>
+                    <div class="description">
+                        <h1>${card.title}</h1>
+                        <h2>${card.name}</h2>
+                        <p>${card.tag}</p>
+                        <p>${card.description1}</p>
+                        <p>"${card.description2}"</p>
+                        <div class="card-details">
+                            <p>Timings: ${card.timings}</p>
+                            <p>Price: ${card.price}</p>
+                        </div>
+                        <button onclick="deleteCard('${card._id}')" class="delete-btn">Delete</button>
+                    </div>
+                `;
+                cardList.appendChild(cardElement);
+            });
+        }
+
+        // Delete Card
+        async function deleteCard(cardId) {
+            try {
+
+                const isDelete = confirm("really want to delete this card?");
+                if(isDelete){
+                    const response = await fetch(
+                    `${API_BASE_URL}/api/tiffin-services/${cardId}`,
+                        {
+                            method: "DELETE",
+                        }
+                    );
+
+                    if (response.ok) {
+                        fetchTiffinServices(); // Refresh the list
+                    } else {
+                        console.error("Failed to delete card");
+                    }
+                }
+                
+            } catch (error) {
+                console.error("Error deleting card:", error);
+            }
+        }
+
+        // Form Submission
+        document
+            .getElementById("tiffinServiceForm")
+            .addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+
+                try {
+                    const response = await fetch(
+                        `${API_BASE_URL}/api/tiffin-services`,
+                        {
+                            method: "POST",
+                            body: formData,
+                        }
+                    );
+
+                    if (response.ok) {
+                        // Reset form
+                        this.reset();
+                        // Refresh card list
+                        fetchTiffinServices();
+                    } else {
+                        console.error("Failed to submit tiffin service");
+                    }
+                } catch (error) {
+                    console.error("Error submitting tiffin service:", error);
+                }
+            });
+
+        // Initial fetch of tiffin services
+        fetchTiffinServices();
+    </script>
+
+
+    //script for authentication and logout 
+    <script>
+        // Check authentication status on page load
+        window.onload = function() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            if (isAuthenticated !== 'true') {
+                alert('Session expired. Redirecting to login page.');
+                window.location.href = 'adminLogin.html'; // Redirect to login page
+            }
+        };
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('isAuthenticated'); // Clear authentication
+            window.location.href = 'adminLogin.html'; // Redirect to login page
+        }
+
+        // Ensure the session closes when the user navigates away
+        window.onbeforeunload = function() {
+            localStorage.removeItem('isAuthenticated');
+        };
+    </script>
+
+</body>
+
+</html>
