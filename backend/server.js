@@ -29,6 +29,7 @@ connectDB();
 
 // Routes
 app.use('/api/tiffin-services', require('./routes/tiffinServiceRoutes'));
+app.use('/api/images', require('./routes/galleryphotosRoute'));
 
 // Basic error handling middleware
 app.use((err, req, res, next) => {
