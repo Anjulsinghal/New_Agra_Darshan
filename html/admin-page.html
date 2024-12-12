@@ -15,17 +15,38 @@
             background-color: #f4f4f4;
         }
 
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .navbar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         .container {
             display: flex;
+            flex-direction: column;
             gap: 30px;
         }
 
         .form-container {
-            flex: 1;
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
 
         .form-group {
@@ -35,10 +56,12 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -55,10 +78,43 @@
         }
 
         .card-list-container {
-            flex: 2;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-list-container h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
         }
 
         .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card-section {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card-section>div{
+            max-width: 450px;
+            margin: 10px;
+        }
+
+        .card-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
@@ -87,7 +143,7 @@
 
         .blog-card h1 {
             margin: 0 0 10px 0;
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
 
         .blog-card h2 {
@@ -104,34 +160,16 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        .navbar{
-            display: flex;
-            flex-direction: row;
-            width: 30px;
-        }
-        .navbar button{
-            position: absolute;
-            right: 10%;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
     </style>
 </head>
 
 <body>
     <div class="navbar">
-            <button onclick="logout()">Logout</button>
+        <button onclick="logout()">Logout</button>
     </div>
     <div class="container">
         <div class="form-container">
-            <h2>Add New Tiffin Service Card</h2>
+            <h2>Add a New Service Card</h2>
             <form id="tiffinServiceForm" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Main Heading</label>
@@ -139,20 +177,18 @@
                 </div>
                 <div class="form-group">
                     <label for="tag">Choose card tag:</label>
-
                     <select name="tag" id="tag">
-                        <option value="food">food</option>
-                        <option value="transport">transport</option>
-                        <option value="tabacco">tabacco</option>
-                        <option value="jail-caupati">jail-caupati</option>
-                        <option value="jail-bandu">jail-bandu</option>
+                        <option value="food">Food Services Page</option>
+                        <option value="transport">Transport Services Page</option>
+                        <option value="tobacco">Anti-Tobacco</option>
+                        <option value="jail-caupati">SOS Jail Chaupati Page</option>
+                        <option value="jail-bandu">SOS Jail Bandhu Page</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="title">Small Heading</label>
                     <input type="text" id="title" name="title" required />
                 </div>
-                
                 <div class="form-group">
                     <label for="description1">Description Paragraph</label>
                     <textarea id="description1" name="description1" rows="4" required></textarea>
@@ -161,144 +197,31 @@
                     <label for="image">Card Image</label>
                     <input type="file" id="image" name="image" accept="image/*" required />
                 </div>
-                <button type="submit" class="submit-btn">
-                    Add Tiffin Service Card
-                </button>
+                <button type="submit" class="submit-btn">Add a Service Card</button>
             </form>
         </div>
         <div class="card-list-container">
-            <h2>Existing Tiffin Service Cards</h2>
-            <div id="cardList" class="card-list">
-                <!-- Dynamically populated cards will be inserted here -->
+            <h2>Existing Service Cards</h2>
+            <div class="card-list">
+                <h2>Cards on Food Services Page</h2>
+                <div class="card-section" id="food-section">
+                </div>
+                <h2>Cards on Transport Services Page</h2>
+                <div class="card-section" id="transport-section">
+                </div>
+                <h2>Cards on Anti-Tobacco Page</h2>
+                <div class="card-section" id="tobacco-section">
+                </div>
+                <h2>Cards on Jail Chaupati Page</h2>
+                <div class="card-section" id="jail-chaupati-section">
+                </div>
+                <h2>Cards on Jail Bandhu Page</h2>
+                <div class="card-section" id="jail-bandhu-section">
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Fetch and Render Tiffin Service Cards
-        const API_BASE_URL = "https://new-agra-darshan.onrender.com";
-        async function fetchTiffinServices() {
-            try {
-                const response = await fetch(`${API_BASE_URL}/api/tiffin-services`);
-                const tiffinServices = await response.json();
-                renderCards(tiffinServices);
-            } catch (error) {
-                console.error("Error fetching tiffin services:", error);
-            }
-        }
-
-        // Render Cards
-        function renderCards(cards) {
-            const cardList = document.getElementById("cardList");
-            cardList.innerHTML = ""; // Clear existing cards
-
-            cards.forEach((card) => {
-                const cardElement = document.createElement("div");
-                cardElement.classList.add("blog-card");
-                cardElement.innerHTML = `
-                    <div class="meta">
-                        <div class="photo" style="background-image: url('${card.imageUrl}')"></div>
-                    </div>
-                    <div class="description">
-                        <h1>${card.title}</h1>
-                        <h2>${card.name}</h2>
-                        <p>${card.tag}</p>
-                        <p>${card.description1}</p>
-                        <p>"${card.description2}"</p>
-                        <div class="card-details">
-                            <p>Timings: ${card.timings}</p>
-                            <p>Price: ${card.price}</p>
-                        </div>
-                        <button onclick="deleteCard('${card._id}')" class="delete-btn">Delete</button>
-                    </div>
-                `;
-                cardList.appendChild(cardElement);
-            });
-        }
-
-        // Delete Card
-        async function deleteCard(cardId) {
-            try {
-
-                const isDelete = confirm("really want to delete this card?");
-                if(isDelete){
-                    const response = await fetch(
-                    `${API_BASE_URL}/api/tiffin-services/${cardId}`,
-                        {
-                            method: "DELETE",
-                        }
-                    );
-
-                    if (response.ok) {
-                        fetchTiffinServices(); // Refresh the list
-                    } else {
-                        console.error("Failed to delete card");
-                    }
-                }
-                
-            } catch (error) {
-                console.error("Error deleting card:", error);
-            }
-        }
-
-        // Form Submission
-        document
-            .getElementById("tiffinServiceForm")
-            .addEventListener("submit", async function (e) {
-                e.preventDefault();
-
-                const formData = new FormData(this);
-
-                try {
-                    const response = await fetch(
-                        `${API_BASE_URL}/api/tiffin-services`,
-                        {
-                            method: "POST",
-                            body: formData,
-                        }
-                    );
-
-                    if (response.ok) {
-                        // Reset form
-                        this.reset();
-                        // Refresh card list
-                        fetchTiffinServices();
-                    } else {
-                        console.error("Failed to submit tiffin service");
-                    }
-                } catch (error) {
-                    console.error("Error submitting tiffin service:", error);
-                }
-            });
-
-        // Initial fetch of tiffin services
-        fetchTiffinServices();
-    </script>
-
-
-    //script for authentication and logout 
-    <script>
-        // Check authentication status on page load
-        window.onload = function() {
-            const isAuthenticated = localStorage.getItem('isAuthenticated');
-            if (isAuthenticated !== 'true') {
-                alert('Session expired. Redirecting to login page.');
-                window.location.href = 'adminLogin.html'; // Redirect to login page
-            }
-        };
-
-        // Logout function
-        function logout() {
-            localStorage.removeItem('isAuthenticated'); // Clear authentication
-            window.location.href = 'adminLogin.html'; // Redirect to login page
-        }
-
-        // Ensure the session closes when the user navigates away
-        window.onbeforeunload = function() {
-            localStorage.removeItem('isAuthenticated');
-        };
-    </script>
-
 </body>
+<script src="/scripts/admin-page.js"></script>
 
 </html>
