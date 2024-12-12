@@ -151,19 +151,7 @@ window.onbeforeunload = function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//script for gallery photos images
 
 // Configuration
 const config = {
